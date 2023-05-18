@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Button, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Preview from "../components/home/Preview";
+import Buttons from "../components/home/Buttons";
 
 function Home({ navigation }) {
   const Logo = require("../../assets/yeogiyoLogo.png");
@@ -11,10 +12,10 @@ function Home({ navigation }) {
       <View style={styles.imageContainer}>
         <Image source={Logo} style={styles.image} />
       </View>
-
       <Preview />
 
       <View style={styles.homeBody}>
+        <Buttons />
         <Text>Home!</Text>
         <Button
           title="전광판 생성"
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   homeBody: {
-    padding: "4%",
+    padding: "5%",
   },
 });
 
