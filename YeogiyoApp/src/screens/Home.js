@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View, Text, Button, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Preview from "../components/home/Preview";
 import Buttons from "../components/home/Buttons";
+import Requests from "../components/Requests";
 
 function Home({ navigation }) {
   const Logo = require("../../assets/yeogiyoLogo.png");
+  const [rq, setRq] = useState([]);
+
   return (
     <SafeAreaView>
       <View style={styles.imageContainer}>
         <Image source={Logo} style={styles.image} />
       </View>
-      <Preview />
+      <Preview rq={rq} />
 
       <View style={styles.homeBody}>
-        <Buttons />
+        <Requests rq={rq} changeRq={(value) => setRq(value)} />
+        <Buttons rq={rq} changeRq={(value) => setRq(value)} />
         <Text>Home!</Text>
         <Button
           title="전광판 생성"

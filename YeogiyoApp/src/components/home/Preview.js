@@ -5,11 +5,11 @@ import TextTicker from "react-native-text-ticker";
 const valueHeight = Dimensions.get("window").height;
 const valueWidth = Dimensions.get("window").width;
 
-function Preview({ navigation }) {
-  const times = [2000, 1500, 1000, 500, 100];
+function Preview({ rq }) {
+  const times = [2500, 2300, 2000, 1500, 1000, 500, 100];
   const [slideTime, setST] = useState(2000);
   const tabScreen = () => {
-    setST((slideTime + 1) % 5);
+    setST((slideTime + 1) % 7);
     console.log(times[slideTime]);
   };
   return (
@@ -25,7 +25,7 @@ function Preview({ navigation }) {
         disabled={true}
         style={styles.pvText}
       >
-        프리뷰!
+        {rq} 주세요!
       </TextTicker>
     </Pressable>
   );

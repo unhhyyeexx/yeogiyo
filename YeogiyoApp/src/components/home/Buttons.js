@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,8 +10,7 @@ import {
 
 const valueWidth = Dimensions.get("window").width;
 
-function Buttons({}) {
-  const [rq, setRq] = useState([]);
+function Buttons({ rq, changeRq }) {
   const [sub, setSub] = useState([]);
   const images = [
     { id: 1, title: "맥주", kind: ["카스", "테라", "켈리", "칭따오"] },
@@ -27,13 +26,16 @@ function Buttons({}) {
     if ([1, 2, 3].includes(id)) {
       setSub(kind);
     } else {
-      setRq(rq.concat([title]));
+      changeRq(rq.concat([title]));
       setSub(kind);
     }
   };
   const pressSub = (title) => {
-    setRq(rq.concat([title]));
+    changeRq(rq.concat([title]));
   };
+  useEffect(() => {
+    changeRq(rq);
+  }, [rq]);
 
   // 버튼 Item 개별
   const Item = ({ title, id, kind }) => (
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: valueWidth * 0.28,
-    height: valueWidth * 0.25,
+    height: valueWidth * 0.2,
     paddingTop: "5%",
     paddingBottom: "5%",
     marginHorizontal: valueWidth * 0.01,
