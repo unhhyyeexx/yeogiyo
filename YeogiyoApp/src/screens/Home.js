@@ -20,7 +20,6 @@ function Home({ navigation }) {
       <View style={styles.homeBody}>
         <Requests rq={rq} changeRq={(value) => setRq(value)} />
         <Buttons rq={rq} changeRq={(value) => setRq(value)} />
-        <Text>Home!</Text>
         <Button
           title="전광판 생성"
           onPress={() => navigation.navigate("Display")}
